@@ -50,7 +50,7 @@ def deviner_mot_de_passe(chaine_a_tester,selected_option):
                     compteur_widget.text(f"Nombre de tentatives : {compteur}") # on affiche le compteur avec le reste en plus ( modulo)
                     end_time = time.time()
                     tps = end_time - start_time
-                    st.write("crack en "+tps+" secs")
+                    st.write("crack en "+ str(round(tps,0)) +" secs")
                     break
     else:
         st.write('Il faut tester sur la bonne chaine')
@@ -90,4 +90,5 @@ st.image("img/tab.png")
 st.divider()
 st.write("Les attaques par force brute évoluent et se basent désormais sur des dictionnaires de mots de passe")
 st.write("Ce qui réduit considérablement le temps de crack de la chaine")
+st.write("Note : Le temps d'exécution est indiqué a titre indcatif.")
 
