@@ -15,6 +15,7 @@ def deviner_mot_de_passe(chaine_a_tester,selected_option):
     Fonction brute de force pour trouver une chaine de caractére
     
     """
+    start_time = time.time()
     compteur = 0 # ini compteur
     compteur_widget = st.empty() # definit un contenaire
     # Liste des options possibles
@@ -47,6 +48,9 @@ def deviner_mot_de_passe(chaine_a_tester,selected_option):
                 if mot_tentatif == chaine_a_tester: # si le try egale la chaine a tester
                     st.write("<span style='color:green;font-size:50px'>"+mot_tentatif+"</span>", unsafe_allow_html=True) # affiche le mot trouvé
                     compteur_widget.text(f"Nombre de tentatives : {compteur}") # on affiche le compteur avec le reste en plus ( modulo)
+                    end_time = time.time()
+                    tps = end_time - start_time
+                    st.write("crack en "+tps+" secs")
                     break
     else:
         st.write('Il faut tester sur la bonne chaine')
